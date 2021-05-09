@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.polimigo.medicalrecord.viewmodels.PatientHomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/geyWithe">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            app:cardBackgroundColor="@color/blueDark"
+            app:cardCornerRadius="@dimen/_15sdp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_15sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/amber"
+                    android:fontFamily="@font/el_messiri_medium"
+                    android:padding="@dimen/_7sdp"
+                    android:text="Patient Profile"
+                    android:textAlignment="center"
+                    android:textColor="@color/blueDark"
+                    android:textSize="@dimen/_20sdp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/geyWithe"
+                    android:fontFamily="@font/el_messiri_medium"
+                    android:text="@={viewModel.patientModel.PATIENT_ID}"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:textAlignment="center"
+                    android:textColor="@color/blueDark"
+                    android:textSize="@dimen/_20sdp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="DIABETES"
+                    android:text="@={viewModel.patientModel.DIABETES}"
+                    android:textAlignment="center"
+                    android:textColor="@color/geyWithe"
+                    android:textColorHint="@color/geyWithe" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="PRESSURE"
+                    android:text="@={viewModel.patientModel.PRESSURE}"
+                    android:textAlignment="center"
+                    android:textColor="@color/geyWithe"
+                    android:textColorHint="@color/geyWithe" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="HEART_STATUE"
+                    android:text="@={viewModel.patientModel.HEART_STATUE}"
+                    android:textAlignment="center"
+                    android:textColor="@color/geyWithe"
+                    android:textColorHint="@color/geyWithe" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="SENSITIVITY"
+                    android:text="@={viewModel.patientModel.SENSITIVITY}"
+                    android:textAlignment="center"
+                    android:textColor="@color/geyWithe"
+                    android:textColorHint="@color/geyWithe" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="SURGERY"
+                    android:text="@={viewModel.patientModel.SURGERY}"
+                    android:textAlignment="center"
+                    android:textColor="@color/geyWithe"
+                    android:textColorHint="@color/geyWithe" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="NOTES"
+                    android:text="@={viewModel.patientModel.NOTES}"
+                    android:textAlignment="center"
+                    android:lines="3"
+                    android:textColor="@color/geyWithe"
+                    android:textColorHint="@color/geyWithe" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_12sdp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/el_messiri_semibold"
+                    android:onClick="@{()-> viewModel.saveData()}"
+                    android:text="@{viewModel.btnTextCheck}"
+                    android:textColor="@color/blueDark"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+            </ScrollView>
+            <include
+                android:id="@+id/llProgressBar"
+                android:visibility="gone"
+                layout="@layout/layout_progress_bar_with_text"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

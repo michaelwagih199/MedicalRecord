@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.polimigo.medicalrecord.viewmodels.DoctorHomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/geyWithe">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            app:cardBackgroundColor="@color/blueDark"
+            app:cardCornerRadius="@dimen/_15sdp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_15sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/amber"
+                    android:fontFamily="@font/el_messiri_medium"
+                    android:padding="@dimen/_7sdp"
+                    android:text="Doctor Profile"
+                    android:textAlignment="center"
+                    android:textColor="@color/blueDark"
+                    android:textSize="@dimen/_20sdp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="Specialization"
+                    android:text="@={viewModel.doctorModel.doctorSpecialization}"
+                    android:textAlignment="center"
+                    android:textColor="@color/geyWithe"
+                    android:textColorHint="@color/geyWithe" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="Phone"
+                    android:text="@={viewModel.doctorModel.doctorPhone}"
+                    android:textAlignment="center"
+                    android:textColor="@color/geyWithe"
+                    android:textColorHint="@color/geyWithe" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/geyWithe"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:entries="@{viewModel.getData()}"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:onItemSelected="@{(parent,view,pos,id)->viewModel.onSelectItem(parent,view,pos,id)}"
+                    android:layout_height="wrap_content"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="Address"
+                    android:text="@={viewModel.doctorModel.doctorAddress}"
+                    android:textAlignment="center"
+                    android:textColor="@color/geyWithe"
+                    android:textColorHint="@color/geyWithe" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_12sdp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/el_messiri_semibold"
+                    android:onClick="@{()-> viewModel.saveData()}"
+                    android:text="@{viewModel.btnTextCheck}"
+                    android:textColor="@color/blueDark"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="normal"
+                    bind:toastMessage="@{viewModel.toastMessage}"/>
+            </LinearLayout>
+
+            <include
+                android:id="@+id/llProgressBar"
+                android:visibility="gone"
+                layout="@layout/layout_progress_bar_with_text"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
