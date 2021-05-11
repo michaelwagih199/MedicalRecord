@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="registerModel"
+            type="com.polimigo.medicalrecord.viewmodels.RegisterViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blueDark">
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_rounded_transparent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/_12sdp"
+                android:paddingTop="@dimen/_12sdp"
+                android:paddingRight="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_15sdp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:cardBackgroundColor="@color/blueDark"
+                    app:cardCornerRadius="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/el_messiri_semibold"
+                        android:padding="@dimen/_2sdp"
+                        android:text="@{registerModel.users.userType}"
+                        android:textAlignment="center"
+                        android:textColor="@color/geyWithe"
+                        android:textSize="@dimen/_16sdp" />
+                </androidx.cardview.widget.CardView>
+
+                <EditText
+                    android:id="@+id/etFirstNameSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:hint="First Name"
+                    android:inputType="text"
+                    android:text="@={registerModel.users.firstNameString}"
+                    android:textColor="@color/blueDark" />
+
+
+                <EditText
+                    android:id="@+id/etLastNameSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:hint="Last Name"
+                    android:inputType="text"
+                    android:text="@={registerModel.users.lastNameString}"
+                    android:textColor="@color/blueDark" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:hint="National Id"
+                    android:inputType="numberDecimal"
+                    android:maxLength="14"
+                    android:text="@={registerModel.users.nationalId}"
+                    android:textColor="@color/blueDark" />
+
+                <EditText
+                    android:id="@+id/etUserNameSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+                    android:hint="User Name"
+                    android:inputType="text"
+                    android:text="@={registerModel.users.userName}"
+                    android:textColor="@color/blueDark" />
+
+                <EditText
+                    android:id="@+id/etPasswordSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:drawableLeft="@drawable/ic_baseline_lock_24"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:text="@={registerModel.users.password}"
+                    android:textColor="@color/blueDark" />
+
+                <Button
+                    android:id="@+id/btnSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_12sdp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/el_messiri_semibold"
+                    android:onClick="@{()-> registerModel.onRegisterClicked()}"
+                    android:text="Sign Up"
+                    android:textColor="@color/blueDark"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="normal"
+                    bind:toastMessage="@{registerModel.toastMessage}" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/llProgressBar"
+            android:visibility="gone"
+            layout="@layout/layout_progress_bar_with_text"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

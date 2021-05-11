@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/blueDark">
+
+<!--        <ImageView-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:background="@drawable/ic_success" />-->
+
+        <TextView
+            android:id="@+id/text_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chose Profile"
+            android:textAlignment="center"
+            android:textSize="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_9sdp"
+            android:fontFamily="@font/el_messiri_medium"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/geyWithe">
+
+        <Button
+            android:id="@+id/btnPatient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_background"
+            android:text="Patient"
+            android:fontFamily="@font/el_messiri_medium"
+            android:textColor="@color/blueDark" />
+
+        <Button
+            android:id="@+id/btnDoctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_background"
+            android:text="Doctor"
+            android:fontFamily="@font/el_messiri_medium"
+            android:textColor="@color/blueDark" />
+    </LinearLayout>
+
+</LinearLayout>

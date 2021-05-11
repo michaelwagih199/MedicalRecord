@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "251648821830",
+    "project_id": "medicalrecord-b51f5",
+    "storage_bucket": "medicalrecord-b51f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251648821830:android:8ea3b6d1ba3a1fd816d847",
+        "android_client_info": {
+          "package_name": "com.polimigo.medicalrecord"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251648821830-3lc4rjr3ik2g4co53mnuhj6dsib1rit6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmCq6yToSBqnz2giSye23VM0e8x8h9WUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "251648821830-3lc4rjr3ik2g4co53mnuhj6dsib1rit6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
