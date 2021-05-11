@@ -1,5 +1,6 @@
 package com.polimigo.medicalrecord.viewmodels;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import androidx.databinding.BaseObservable;
@@ -20,11 +21,13 @@ public class RegisterViewModel extends BaseObservable {
     private String successMessage = "Login was successful";
     private String errorMessage = "Please fill All data";
     private UsersRepository usersRepository;
+    private Context context;
 
-    public RegisterViewModel(RegisterEvents registerViewModel, String type) {
-        users = new Users("", "", "", "",type,"");
+    public RegisterViewModel(RegisterEvents registerViewModel, String type, Context context) {
+        users = new Users("", "", "", "", type, "");
         this.registerEvents = registerViewModel;
         usersRepository = UsersRepository.newInstance();
+        this.context = context;
     }
 
     public String getToastMessage() {
@@ -50,7 +53,6 @@ public class RegisterViewModel extends BaseObservable {
 
     public void onRegisterClicked() {
         if (isInputDataValid()) {
-            registerEvents.onStartedL();
             Users contact = new Users();
             contact.setFirstNameString(users.getFirstNameString());
             contact.setLastNameString(users.getLastNameString());
@@ -58,10 +60,7 @@ public class RegisterViewModel extends BaseObservable {
             contact.setPassword(users.getPassword());
             contact.setUserType(users.getUserType());
             contact.setNationalId(users.getNationalId());
-            if (usersRepository.createDocument(contact))
-                registerEvents.onSuccessL();
-            else
-                registerEvents.onFailerL();
+            usersRepository.createDocument(contact, context);
         } else {
             setToastMessage(errorMessage);
         }

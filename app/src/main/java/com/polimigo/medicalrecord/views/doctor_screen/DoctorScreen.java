@@ -54,6 +54,8 @@ public class DoctorScreen extends AppCompatActivity implements RegisterEvents {
     }
 
     public void ScanPatientCode(View view) {
-        startActivity(new Intent(this, SimpleScanner.class));
+        Intent intent = new Intent(getBaseContext(), SimpleScanner.class);
+        intent.putExtra("SCAN_TYPE", "PATIENT");
+        startActivity(intent);
     }
 }
