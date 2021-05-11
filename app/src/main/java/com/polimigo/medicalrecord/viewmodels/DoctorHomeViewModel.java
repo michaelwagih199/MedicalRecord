@@ -50,7 +50,6 @@ public class DoctorHomeViewModel extends BaseObservable {
         this.doctorModel = doctorModel;
     }
 
-
     public String getBtnTextCheck() {
         return btnTextCheck;
     }

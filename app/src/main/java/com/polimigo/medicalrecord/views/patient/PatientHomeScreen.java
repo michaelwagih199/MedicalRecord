@@ -11,6 +11,7 @@ import com.polimigo.medicalrecord.R;
 import com.polimigo.medicalrecord.databinding.ActivityPatientHomeBindingImpl;
 import com.polimigo.medicalrecord.helpers.SharedPrefrenceHelper;
 import com.polimigo.medicalrecord.repositories.PatientRepository;
+import com.polimigo.medicalrecord.views.code.DoctorScanner;
 import com.polimigo.medicalrecord.views.code.PatientCode;
 import com.polimigo.medicalrecord.views.code.SimpleScanner;
 import com.polimigo.medicalrecord.views.events.RegisterEvents;
@@ -39,8 +40,7 @@ public class PatientHomeScreen extends AppCompatActivity implements RegisterEven
     }
 
     public void onScanDoctor(View view) {
-        Intent intent = new Intent(getBaseContext(), SimpleScanner.class);
-        intent.putExtra("SCAN_TYPE", "DOCTOR");
+        Intent intent = new Intent(getBaseContext(), DoctorScanner.class);
         startActivity(intent);
     }
 

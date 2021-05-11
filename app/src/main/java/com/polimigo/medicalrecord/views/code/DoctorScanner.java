@@ -1,17 +1,20 @@
 package com.polimigo.medicalrecord.views.code;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.google.zxing.Result;
+import com.polimigo.medicalrecord.R;
 import com.polimigo.medicalrecord.views.doctor_screen.DoctorProfile;
-import com.polimigo.medicalrecord.views.patient.PatientProfile;
+import com.polimigo.medicalrecord.views.patient.DoctorsData;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-public class SimpleScanner extends Activity implements ZXingScannerView.ResultHandler {
+public class DoctorScanner extends Activity implements ZXingScannerView.ResultHandler {
+
     private ZXingScannerView mScannerView;
     private String ScannerType;
 
@@ -37,8 +40,8 @@ public class SimpleScanner extends Activity implements ZXingScannerView.ResultHa
 
     @Override
     public void handleResult(Result rawResult) {
-        Intent intent = new Intent(getBaseContext(), DoctorProfile.class);
-        intent.putExtra("PATIENT_ID", rawResult.getText());
+        Intent intent = new Intent(getBaseContext(), DoctorsData.class);
+        intent.putExtra("DocumentId", rawResult.getText());
         startActivity(intent);
         mScannerView.resumeCameraPreview(this);
     }

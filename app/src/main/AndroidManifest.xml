@@ -14,8 +14,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedicalRecord">
-        <activity android:name=".views.GetLocation"
-            android:theme="@android:style/Theme.Holo.Light.Dialog"></activity>
+        <activity android:name=".views.patient.DoctorsData"></activity>
+        <activity
+            android:name=".views.code.DoctorScanner"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" />
+        <activity
+            android:name=".views.GetLocation"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" />
         <activity android:name=".views.doctor_screen.DoctorProfile" />
         <activity android:name=".views.patient.NearestDoctor" />
         <activity android:name=".views.patient.PatientProfile" />

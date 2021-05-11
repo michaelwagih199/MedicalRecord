@@ -22,6 +22,7 @@ public class DoctorModel {
     }
 
     public DoctorModel() {
+
     }
 
     public String getDocumentId() {

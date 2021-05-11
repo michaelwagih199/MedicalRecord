@@ -3,10 +3,8 @@ package com.polimigo.medicalrecord.views.doctor_screen;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-
 import com.polimigo.medicalrecord.R;
 import com.polimigo.medicalrecord.databinding.ActivityDoctorScreenBindingImpl;
 import com.polimigo.medicalrecord.helpers.SharedPrefrenceHelper;
@@ -55,7 +53,7 @@ public class DoctorScreen extends AppCompatActivity implements RegisterEvents {
 
     public void ScanPatientCode(View view) {
         Intent intent = new Intent(getBaseContext(), SimpleScanner.class);
-        intent.putExtra("SCAN_TYPE", "PATIENT");
         startActivity(intent);
     }
+
 }
