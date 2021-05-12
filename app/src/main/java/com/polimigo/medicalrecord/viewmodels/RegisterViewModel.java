@@ -71,7 +71,8 @@ public class RegisterViewModel extends BaseObservable {
         if (!TextUtils.isEmpty(users.getFirstNameString())
                 && !TextUtils.isEmpty(users.getLastNameString())
                 && !TextUtils.isEmpty(users.getPassword())
-                && !TextUtils.isEmpty(users.getPassword()))
+                && !TextUtils.isEmpty(users.getPassword())
+                && users.getNationalId().length()==14)
             result = true;
         return result;
     }
