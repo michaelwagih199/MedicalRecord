@@ -37,7 +37,7 @@ public class SimpleScanner extends Activity implements ZXingScannerView.ResultHa
 
     @Override
     public void handleResult(Result rawResult) {
-        Intent intent = new Intent(getBaseContext(), DoctorProfile.class);
+        Intent intent = new Intent(getBaseContext(), PatientProfile.class);
         intent.putExtra("PATIENT_ID", rawResult.getText());
         startActivity(intent);
         mScannerView.resumeCameraPreview(this);
